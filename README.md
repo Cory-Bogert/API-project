@@ -1,7 +1,8 @@
 AirBnB replication
 Database Schema Design
 
-![image](https://user-images.githubusercontent.com/104010694/197071698-cf2ada75-7198-4008-9b0e-d71f0eeba6f3.png)
+![image](https://user-images.githubusercontent.com/104010694/197628874-2d26742f-2488-40e4-b7fa-9257ef209eb2.png)
+
 
 
 ## API Documentation
