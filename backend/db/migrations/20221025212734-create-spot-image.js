@@ -11,11 +11,11 @@ module.exports = {
       },
       spotId: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
+        // autoIncrement: true,
         allowNull: false,
         references: {
           model: 'Spots',
-          key: 'id'
+          // key: 'id'
         }
       },
       url: {

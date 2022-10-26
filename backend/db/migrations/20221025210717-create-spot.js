@@ -11,11 +11,10 @@ module.exports = {
       },
       ownerId: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         allowNull: false,
         references: {
-          model: 'Users',
-          key: 'id'
+          model: 'Users'
+          // key: 'id'
         }
       },
       address: {
@@ -35,11 +34,11 @@ module.exports = {
         allowNull: false
       },
       lat: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       lng: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       name: {

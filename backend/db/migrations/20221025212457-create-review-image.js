@@ -12,11 +12,11 @@ module.exports = {
       reviewId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
-        references: {
-          model: 'Reviews',
-          key: 'id'
-        }
+        // autoIncrement: true,
+        // references: {
+        //   model: 'Reviews',
+        //   // key: 'id'
+        // }
       },
       url: {
         type: Sequelize.STRING

@@ -11,27 +11,25 @@ module.exports = {
       },
       spotId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        references: {
-          model: 'Spots',
-          key: 'id'
-        }
+        // references: {
+        //   model: 'Spots'
+        // },
+        // onDelete: 'CASCADE'
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
-        references: {
-          model: 'Users',
-          key: 'id'
-        }
+        // autoIncrement: true,
+        // references: {
+        //   model: 'Users'
+        // },
+        // onDelete: 'CASCADE'
       },
       review: {
         type: Sequelize.STRING
       },
       stars: {
-        type: Sequelize.FLOAT
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
