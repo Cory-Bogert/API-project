@@ -9,7 +9,8 @@ module.exports = {
         url: 'https://user-images.githubusercontent.com/104010694/197628874-2d26742f-2488-40e4-b7fa-9257ef209eb2.png'
       },
       {
-        reviewId: 2
+        reviewId: 2,
+        url: 'image.url'
       },
       {
         reviewId: 3,
