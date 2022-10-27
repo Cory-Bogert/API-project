@@ -8,14 +8,48 @@ const router = express.Router();
 
 //get all spots
 //needs previewImage
-router.get('/', async (req, res, next) => {
-    let spots = await Spot.findAll({
-        include:[
-            // {model:Review, attributes: [sequelize.fn('AVG', sequelize.col('stars')), 'averageRating']},
-            // {model: SpotImage, where: {preview: true}, attributes: ['url', {as: 'previewImage'}]}
+// router.get('/', async (req, res, next) => {
+//     let allSpots = await Spot.findAll({
+//         include:[
+//             // {model:Review, attributes: [sequelize.fn('AVG', sequelize.col('stars')), 'averageRating']},
+//             // {model: SpotImage, where: {preview: true}, attributes: ['url', 'previewImage']},
+//             {model: Review, as: 'Reviews', attributes:[]}
+// ],
+// attributes:{include: [[sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating']]
+// },
+// group:['Spot.id'] })
+//     return res.json(allSpots)
+// })
 
-    ]})
-    return res.json(spots)
+router.get('/', async (req,res)=>{
+    const spots = await Spot.findAll({
+    include:[{
+            model:Review,
+            as:'Reviews',
+            attributes:[],
+        },
+        {
+            model: SpotImage,
+            as: 'SpotImages',
+            attributes: [],
+        }
+    ],
+    attributes:{
+        include:
+            [
+                [
+                    sequelize.fn('AVG', sequelize.col('Reviews.stars')),'avgRating'
+                ],
+// {
+//                     model: SpotImage,
+//                     attributes: ['url']
+// }
+            ]
+    },
+    group:['Spot.id']
+    })
+    // console.log("spots",spots)
+    res.json({spots})
 })
 
 //Get all Spots owned by the Current User
@@ -25,7 +59,10 @@ router.get('/current', requireAuth, async(req, res, next) => {
 
 //Get details of a Spot from an id
 router.get('/:spotId', async(req, res, next) => {
-    res.send('hellohello')
+    // let spot = await Spot.findOne({
+    //     where: { id: req.params.spotId}
+    // })
+    // return res.json({spot})
 })
 
 //Create a Spot

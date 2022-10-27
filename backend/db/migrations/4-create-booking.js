@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SpotImages', {
+    await queryInterface.createTable('Bookings', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,14 +12,27 @@ module.exports = {
       spotId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Spots'},
+        references: {
+           model: 'Spots',
+           key: 'id'
+          },
         onDelete: 'CASCADE'
       },
-      url: {
-        type: Sequelize.STRING
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
       },
-      preview: {
-        type: Sequelize.BOOLEAN
+      startDate: {
+        type: Sequelize.DATE,
+        // allowNull: false
+      },
+      endDate: {
+        type: Sequelize.DATE,
+        // allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +47,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SpotImages');
+    await queryInterface.dropTable('Bookings');
   }
 };

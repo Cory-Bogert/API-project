@@ -6,7 +6,7 @@ module.exports = {
     return queryInterface.bulkInsert('SpotImages', [
       {
         spotId: 1,
-        url: 'https://www.google.com/search?q=st+louis+houses+for+sale&rlz=1C1CHBF_enUS922US922&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiitL_Zof76AhVNj2oFHTkHDncQ_AUoAnoECAIQBA&biw=1152&bih=1934&dpr=1.25#imgrc=XiQvPW4O_5DhhM',
+        url: 'thisisaurl.adr',
         preview: true
       },
       {
