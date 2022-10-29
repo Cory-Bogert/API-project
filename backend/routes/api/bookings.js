@@ -24,8 +24,7 @@ router.get('/current', requireAuth, async(req, res, next) => {
     const currentBooking = await Booking.findAll({
         where: { userId: user.id },
         include: [
-            { model: Spot,
-              attributes:[ 'id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price'],
+            { model: Spot, attributes:[ 'id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price'],
               include:{ model: SpotImage, where:{ preview: true }}
             }
         ]

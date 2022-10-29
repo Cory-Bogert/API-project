@@ -3,7 +3,6 @@ const { Op } = require('sequelize')
 const { Spot, Review, SpotImage, User, Booking, ReviewImage } = require('../../db/models');
 const sequelize = require('sequelize')
 const {setTokenCookie, requireAuth } = require('../../utils/auth');
-const spot = require('../../db/models/spot');
 const { check, validationResult } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -262,14 +261,7 @@ router.get('/', async (req, res, next) => {
         })
     }
 })
-    // return res.json({
-    //     Spots: allSpots, 'page': page, 'size': size
 
-
-
-    // attributes: {
-    //     include: [[sequelize.fn("AVG", sequelize.col('stars')), "avgRating"]]
-    // }
 
 //Get all Spots owned by the Current User
 router.get('/current', requireAuth, async(req, res, next) => {
@@ -420,7 +412,8 @@ router.put('/:spotId', spotValidationError, requireAuth, async(req, res, next) =
         res.status(200)
         return res.json(findSpot)
     } else {
-        return res.send({
+        res.status(403)
+        return res.json({
             'message': 'User not authorized',
             'statusCode': 403
         })
@@ -467,15 +460,23 @@ router.get('/:spotId/reviews', async (req, res, next) => {
     return res.json({ 'Reviews': reviewSpot })
 })
 
+//Not working
 //create a review for a spot based on the spot's id -- not working yet
 router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, res, next) => {
     const { user } = req
     const { review, stars } = req.body
     const { spotId } = req.params
+    const userId = req.user.dataValues.id
     const findSpot = await Spot.findByPk(spotId)
 
     const reviews = await Review.findAll({
-        where: {userId: user.id, spotId: spot.id}
+        include: [
+            { model: Spot,
+              where: {
+                id: spotId
+              }
+            }
+        ]
     })
 
     if(reviews.length > 0){
@@ -495,7 +496,7 @@ router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, 
     }
 
     const newReview = await Review.create({
-        userId: user.id, spotId: spot.id, review, stars
+        userId, spotId, review, stars
     })
 
     res.status(201)
