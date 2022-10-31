@@ -49,7 +49,7 @@ router.post(
         // return next(err);
         res.status(401);
         return res.json({
-          "message": "Authentication required",
+          "message": "Invalid credentials",
           "statusCode": 401
         })
       }
