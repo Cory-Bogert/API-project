@@ -23,27 +23,54 @@ const validateLogin = [
 // Log in
 router.post(
     '/',
-    validateLogin,
+    // validateLogin,
     async (req, res, next) => {
       const { credential, password } = req.body;
 
       const user = await User.login({ credential, password });
 
-      if (!user) {
-        const err = new Error('Invalid credentials');
-        err.status = 401;
-        // err.title = 'Login failed';
-        // err.errors = ['The provided credentials were invalid.'];
-        return next(err);
+      if(!credential.length || !password.length){
+        return res.status(400).json({
+          "message": "Validation error",
+          "statusCode": 400,
+          "errors": {
+            "credential": "Email or username is required",
+            "password": "Password is required"
+          }
+      })
       }
 
-      await setTokenCookie(res, user);
 
+      if (!user) {
+        // const err = new Error('Invalid credentials');
+        // err.status = 401;
+        // err.title = 'Login failed';
+        // err.errors = ['The provided credentials were invalid.'];
+        // return next(err);
+        res.status(401);
+        return res.json({
+          "message": "Invalid credentials",
+          "statusCode": 401
+        })
+      }
+
+      // await setTokenCookie(res, user);
+
+      // return res.json({
+      //   user
+
+      const token = setTokenCookie(res, user)
+      const currentUser = user.toJSON()
       return res.json({
-        user
-      });
-    }
-  );
+        id: currentUser.id,
+        firstName: currentUser.firstName,
+        lastName: currentUser.lastName,
+        email: currentUser.email,
+        username: currentUser.username,
+        token
+      })
+     });
+
 
   // Log out
 router.delete(
@@ -58,13 +85,13 @@ router.delete(
 router.get(
     '/',
     restoreUser,
-    (req, res) => {
-      const { user } = req;
+   async (req, res) => {
+      const user = req.user
       if (user) {
         return res.json({
           user: user.toSafeObject()
         });
-      } else return res.json({});
+      } else return res.json(null);
     }
   );
 

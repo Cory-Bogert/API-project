@@ -98,7 +98,7 @@ router.put('/:reviewId',requireAuth, async (req, res, next) => {
         })
     }
     if(findReview.toJSON().userId === userId){
-        if(stars >= 1 && stars <= 5){
+        if((stars >= 1 && stars <= 5) && (review.length > 0)){
         findReview.review = review;
         findReview.stars = stars
         await findReview.save()
@@ -120,8 +120,22 @@ router.put('/:reviewId',requireAuth, async (req, res, next) => {
 })
 
 //Delete a Review
-router.delete('/:reviewId', async (req, res, next) => {
-    res.send()
+router.delete('/:reviewId', requireAuth, async (req, res, next) => {
+    const { reviewId } = req.params
+    const reviewExists = await Review.findByPk(reviewId)
+    if(!reviewExists){
+        res.status(404)
+        return res.json({
+            "message": "Review couldn't be found",
+            "statusCode": 404
+        })
+    }
+    await reviewExists.destroy();
+    res.status(200)
+    return res.json({
+        "message": "Successfully deleted",
+        "statusCode": 200
+    })
 })
 
 

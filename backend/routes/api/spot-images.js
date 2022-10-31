@@ -7,7 +7,21 @@ const {setTokenCookie, requireAuth } = require('../../utils/auth')
 const router = express.Router();
 
 router.delete('/:imageId', requireAuth, async(req, res, next) => {
-    res.send('asd;lkf')
+    const { imageId } = req.params
+    const imageExists = await SpotImage.findByPk(imageId)
+    if(!imageExists){
+        res.status(404)
+        res.json({
+            "message": "Spot Image couldn't be found",
+            "statusCode": 404
+        })
+    }
+    await imageExists.destroy();
+    res.status(200)
+    return res.json({
+        "message": "Successfully deleted",
+        "statusCode": 200
+    })
 })
 
 

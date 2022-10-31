@@ -8,7 +8,21 @@ const router = express.Router();
 
 //Delete a review image
 router.delete('/:imageId', requireAuth, async(req, res, next) => {
-    res.send('asd;flkjasdf')
+    const { imageId } = req.params
+    const imageExists = await ReviewImage.findByPk(imageId)
+    if(!imageExists){
+        res.status(404)
+        res.json({
+            "message": "Review Image couldn't be found",
+            "statusCode": 404
+        })
+    }
+    await imageExists.destroy()
+    res.status(200)
+    return res.json({
+        "message": "Successfully deleted",
+        "statusCode": 200
+    })
 })
 
 
