@@ -42,35 +42,7 @@ router.get('/current', requireAuth, async(req, res, next) => {
         delete bookings.Spot.SpotImages
     })
 
-    // console.log(bookArr)
-    // for(let i = 0; i < bookArr.length; i++){
-    //     // console.log(bookArr[i].Spot.SpotImages)
-    //     let spotImage = bookArr[i].Spot.SpotImages
-    //     for(let j = 0; j < spotImage.length; i++){
-    //         // console.log(spotImage)
-    //         if(spotImage.preview === true){
-    //             spotImage = spotImage.url
-    //         }
-    //     }
-    // }
-    // delete spotImage
-
-    // bookArr.forEach(booking => {
-    //     booking.Spot.SpotImages.forEach(spotImage => {
-
-    //       if(spotImage.preview === true){
-    //         booking.Spot.previewImage = spotImage.url
-    //       }
-
-    //     })
-
-
-    //     delete booking.Spot.SpotImages
-
-    //   });
-    //   return res.json({
-    //     "Bookings": bookArr
-    // })
+   
     return res.json({
         "Bookings": bookArr
     })

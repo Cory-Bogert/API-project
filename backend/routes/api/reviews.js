@@ -23,7 +23,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
     })
 
     let reviewArr = []
-    let reviewObj
+
     for(let i = 0; i < getReviews.length; i++){
         let reviewObj = getReviews[i].toJSON();
         let previewImg = await SpotImage.findByPk(getReviews[i].id,{
@@ -43,9 +43,6 @@ router.get('/current', requireAuth, async (req, res, next) => {
 
     }
     // console.log('asd;lfkjasdf',reviewArr)
-
-
-
 
     return res.json({'Reviews': reviewArr })
 })
