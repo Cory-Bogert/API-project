@@ -1,0 +1,11 @@
+.demoButton{
+    width: 520px;
+    height: 60px;
+    background-color: #ff385c;
+    border:none;
+    border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+    margin-left: 35px;
+    margin-right: 39px;
+    margin-top: 31px;
+}
