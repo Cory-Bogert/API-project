@@ -49,7 +49,7 @@ export const getOneSpot = (spotId) => async dispatch => {
 }
 
 //create spot
-export const createSpot = (imageload, payload) => async dispatch => {
+export const createSpot = (imagePayload, payload) => async dispatch => {
     const response = await csrfFetch(`/api/spots`, {
         method: 'POST',
         headers: {
@@ -63,11 +63,11 @@ export const createSpot = (imageload, payload) => async dispatch => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(imageload)
+        body: JSON.stringify(imagePayload)
         })
 
     if(response.ok && image.ok ){
-        dispatch(addSpot(spot));
+        dispatch(create(spot));
          return spot
     }
 
