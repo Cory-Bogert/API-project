@@ -21,3 +21,5 @@ function EditSpotFormModal() {
         </>
     )
 }
+
+export default EditSpotFormModal

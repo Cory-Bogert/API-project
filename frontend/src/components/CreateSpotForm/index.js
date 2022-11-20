@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
-import CreateSpotForm from './CreateSpotForm'
+import CreateSpotForm from "./CreateFormSpots";
 
 function CreateSpotModal() {
     const [showModal, setShowModal] = useState(false)

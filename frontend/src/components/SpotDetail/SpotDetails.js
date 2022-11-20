@@ -1,41 +1,78 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+
+import React, { useState, useEffect } from 'react';
+import { useParams, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import UpdateSpotForm from '../UpdateSpotForm';
-// import { deleteSpot } from '../../store/spots';
 import { useHistory } from 'react-router-dom';
-// import AllReviewsSpot from '../AllReviewsSpot';
-// import CreateReview from '../CreateReview';
-import { getAllSpots } from "../../store/SpotsReducer";
-// import { getReviews } from '../../store/reviews';
-import { getAllReviewsBySpotId } from '../../store/ReviewsReducer';
+
+import { getAllSpots, deleteSpot, getOneSpot } from "../../store/SpotsReducer";
+import { getAllReviews, createReviews, deleteReview } from '../../store/ReviewsReducer';
+
+import EditSpotFormModal from '../EditForm';
+
+
 
 const SpotDetails = () => {
-    const dispatch = useDispatch()
-    const { spotId } = useParams()
     const history = useHistory()
-    const sessionUser = useSelector(state => state.session.user)
-    const reviews = useSelector(state => Object.values(state.reviews))
-    const allReviews = useSelector(state => Object.values(state.reviews))
-    const reviewsArr = reviews.filter(review => review.spotId === +spotId)
     const allSpots = useSelector(state => Object.values(state.spot))
-    const spot = allSpots.find(spot => spot.id === +spot.id)
-
-    let currentReviews = []
-    let sessionUserId
-
-    if(sessionUser){
-        sessionUserId = sessionUser.id;
-    }
-
-    const userReview = reviewsArr.filter(oneReview => oneReview.userId === sessionUserId)
-
+    const { spotId } = useParams()
+    // let allReviews = useSelector(state => Object.values(state.review))
+    let user = useSelector(state => (state.session.user))
+    const spot = allSpots.find(spot => spot.id === +spotId)
+    const dispatch = useDispatch()
+    const isUserOwner = (spot, user) => spot && user && spot.ownerId === user.id
+    const isUserReviewCreator = (review, user) => user && user.id === review.userId
 
     useEffect(() => {
-        dispatch((getAllSpots()))
-        dispatch((getAllReviewsBySpotId(spotId)))
-    }, dispatch)
+        dispatch(getAllSpots())
+        dispatch(getAllReviews())
+    }, [dispatch])
 
+
+
+    return (
+        <>
+           <div>
+            <h1>{spot.name}</h1>
+           </div>
+
+           <div>
+            {/* <i className='fa-solid fa-star'></i> */}
+
+            ★{spot.avgRating} {spot.address} {spot.city} {spot.state}
+           </div>
+
+           <div>
+            <img className='spot-image' src={spot.previewImage} />
+           </div>
+
+           <div>
+            {spot.description}
+           </div>
+
+           <div>
+            {`$${spot.price} per night`}
+           </div>
+
+           <div>
+            <i className='fa-solid fa-star'></i>
+            {!spot.avgRating ? 'NEW' : spot.avgRating}
+           </div>
+
+           {<reviewsReducer />}
+
+           {/* {userId && userId === currSpot.ownerId ? null : (
+            <div className='create-review'>
+                <CreateReviewModal />
+            </div>
+           )}
+
+           <div>
+            {userId && userId === currSpot.ownerId ? <EditSpotFormModal /> : null}
+           </div> */}
+
+
+        </>
+    )
 
 }
 
