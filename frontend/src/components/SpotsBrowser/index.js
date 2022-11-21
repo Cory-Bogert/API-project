@@ -19,12 +19,13 @@ const AllSpots = () => {
 
 
     return (
-        <div className = 'cardOuterContainer'>
+        <>
+
             <div className='cardInnerContainer'>
 
                 {spot.map(spots => {
                     return (
-                    <div className = 'spotCard'>
+                        <div className = 'spotCard'>
                     <Link className="spot-link" key={spots.address} to={`/spots/${spots.id}`}>
                     <div className="all-spots">
                     <div><img className="spot-image" src={spots.previewImage} /></div>
@@ -41,20 +42,20 @@ const AllSpots = () => {
                     )
                 })}
 
+
+
             </div>
 
-        </div>
-    //  <NavLink key={spot.name} to={`/spots/${spot.id}`}>
+<footer>
+<div className='footer'>
+    <p>© 2022 Airbnb, Inc.</p>
+</div>
+</footer>
+                </>
 
-    //     <div><img className='spotImage' src={spot.previewImage} width="200" height="150"></img></div>
-    //     <div className = 'spot-details'>
-    //     <div className = 'spotName'>{spot.name}</div>
-    //     <div className = 'spotRating'><div className = "star"><i class="fa-sharp fa-solid fa-star fa-xs"></i></div>  <div className = "avgRating">{!spot.avgRating ? "0" : spot.avgRating}</div></div>
-    //     </div>
-    //     <div className='spotAddress'>{spot.city}, {spot.state}</div>
-    //     <div className='spotPrice'>${spot.price}</div>
 
-    // </NavLink>
+
+
         )
 
     }

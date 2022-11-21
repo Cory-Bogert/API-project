@@ -1,11 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import React, {  useEffect } from 'react';
+import { useParams,  } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import './SpotDetail.css'
 
-import { getAllSpots, deleteSpot, getOneSpot } from "../../store/SpotsReducer";
-import { getAllReviews, createReviews, deleteReview } from '../../store/ReviewsReducer';
+import { getAllSpots, deleteSpot } from "../../store/SpotsReducer";
+import { getAllReviews } from '../../store/ReviewsReducer';
 import CreateReviewModal from '../CreateReviewForm';
 // import { deleteSpot } from '../../store/SpotsReducer';
 // import DeleteSpot from '../DeleteSpot';
@@ -15,7 +16,7 @@ import EditSpotFormModal from '../EditForm';
 
 
 const SpotDetails = () => {
-    const history = useHistory()
+    // const history = useHistory()
     const allSpots = useSelector(state => Object.values(state.spot))
     const { spotId } = useParams()
     // let allReviews = useSelector(state => Object.values(state.review))
@@ -23,8 +24,7 @@ const SpotDetails = () => {
     const spot = allSpots.find(spot => spot.id === +spotId)
     const dispatch = useDispatch()
 
-    // const isUserOwner = (spot, user) => spot && user && spot.ownerId === user.id
-    // const isUserReviewCreator = (review, user) => user && user.id === review.userId
+
 
     useEffect(() => {
         dispatch(getAllSpots())
@@ -40,7 +40,7 @@ const SpotDetails = () => {
 
     return (
         <>
-           <div>
+           <div className='spot-card'>
             <h1>{spot.name}</h1>
             <button onClick={deleteThisSpot}>Delete Spot</button>
            </div>
@@ -48,11 +48,11 @@ const SpotDetails = () => {
            <div>
             {/* <i className='fa-solid fa-star'></i> */}
 
-            ★{spot.avgRating} {spot.address} {spot.city} {spot.state}
+             {spot.address} {spot.city} {spot.state}
            </div>
 
            <div>
-            <img className='spot-image' src={spot.previewImage} />
+            <img className='spot-image' src={spot.previewImage} alt='spot'/>
            </div>
 
            <div>
@@ -64,8 +64,7 @@ const SpotDetails = () => {
            </div>
 
            <div>
-            {/* <i className='fa-solid fa-star'></i> */}
-            ★{!spot.avgRating ? 'NEW' : spot.avgRating}
+            ★{!spot.avgRating ? '0' : spot.avgRating}
            </div>
 
            {/* {<reviewsReducer />} */}
@@ -77,8 +76,14 @@ const SpotDetails = () => {
            )}
 
            <div>
-            {sessionUser && sessionUser === spot.ownerId ? <EditSpotFormModal /> : null}
+            {sessionUser && sessionUser.id === spot.ownerId ? <EditSpotFormModal /> : null}
            </div>
+
+           <footer>
+            <div className='footer'>
+                <p>© 2022 Airbnb, Inc.</p>
+            </div>
+           </footer>
 
 
         </>

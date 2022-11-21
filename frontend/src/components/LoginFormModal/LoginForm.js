@@ -21,31 +21,36 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <div className="login-title">
+
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
-        ))}
+          ))}
       </ul>
       <label>
         Username or Email
         <input
+          className="input"
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
-        />
+          />
       </label>
       <label>
         Password
         <input
+        className="input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        />
+          />
       </label>
-      <button type="submit">Log In</button>
+      <button className="login-btn" type="submit">Log In</button>
+          </div>
     </form>
   );
 }

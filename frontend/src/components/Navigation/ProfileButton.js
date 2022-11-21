@@ -6,7 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormPage";
 import LoginForm from "../LoginFormModal/LoginForm";
 import SignupFormPage from "../SignupFormPage/SignupForm";
-import CreateSpotModal from "../CreateSpotForm";
+// import CreateSpotModal from "../CreateSpotForm";
 import DemoUser from "../Demo";
 import { Modal } from "../../context/Modal";
 
@@ -43,24 +43,23 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     history.push('/')
   };
 
-  const mySpots = (e) => {
-    e.preventDefault()
-    history.push('/current/spots')
-  }
+  // const mySpots = (e) => {
+  //   e.preventDefault()
+  //   history.push('/current/spots')
+  // }
 
   if(sessionUser){
     return (
       <>
         <button className='user-profile-btn' onClick={openMenu}>
           <div className='user-proflie-icons'>
-            <i className='fa-solid fa-bars fa-lg'></i>
+            <i className='fa-solid fa-bars'></i>
             <i className='navbar-user-circle fas fa-user-circle fa-2x'></i>
           </div>
         </button>
 
         {showMenu && (
           <ul className='user-dropdown'>
-            {/* <CreateSpotModal /> */}
             <li className='user-info'>Welcome {user.firstName}</li>
             <li className='user-info'>{user.email}</li>
             <li>
@@ -110,40 +109,6 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     )
   }
 
-
-//   return (
-//     <>
-//       <button onClick={openMenu}>
-//         <i className="fas fa-user-circle" />
-
-//       </button>
-//       {showMenu && (user ?
-//         <ul className="profile-dropdown">
-//           <li>{user.username}</li>
-//           <li>{user.email}</li>
-//           <li>
-//             <button onClick={logout}>Log Out</button>
-//           </li>
-//         </ul> :
-//         <ul>
-//           <button onClick={() => {
-//             setLogin(true)
-//             setShowModal(true)
-//           }}>
-//             Log In
-//           </button>
-
-//           <button onClick={() => {
-//             setLogin(false)
-//             setShowModal(true)
-//           }}>
-//             Sign Up
-//           </button>
-//         </ul>
-//       )}
-//     </>
-//   );
-// }
 }
 
 export default ProfileButton

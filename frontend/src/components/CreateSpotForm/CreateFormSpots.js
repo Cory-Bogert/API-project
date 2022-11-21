@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, Route, useHistory, useParams } from 'react-router-dom'
 import { createSpot } from "../../store/SpotsReducer";
+import './CreateSpotForm.css'
 
 const CreateSpotForm = ({ closeModal }) => {
   const dispatch = useDispatch()

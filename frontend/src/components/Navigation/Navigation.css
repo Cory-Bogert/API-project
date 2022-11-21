@@ -27,5 +27,17 @@
 }
 
 .logo-name {
-    height: 50px;
+    height: 1000px;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-dropdown {
+    display: flex;
+    position: relative;
+    display: inline-block;
+
 }

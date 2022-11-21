@@ -1,0 +1,32 @@
+.signup-input{
+    width: 520px;
+    height: 60px;
+    margin:0px;
+    border:0px;
+    padding:0px;
+    border: 1px solid #afafaf;
+}
+
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.signup-btn {
+    width: 520px;
+    height: 60px;
+    background-color: #ff383c;
+    border:none;
+    border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+}
+/* #Modal-signup{
+    height: 50px;
+    width: 182px;
+}
+#error{
+    color:red;
+    list-style-type: none;
+    font-size: 10px;
+} */

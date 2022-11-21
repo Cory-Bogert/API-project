@@ -24,26 +24,34 @@
 .spotCard {
     width: 50%;
     margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 4%;
 
 }
 
-.cardOuterContainer {
+/* .cardOuterContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10%;
-}
+} */
 
 .cardInnerContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding-top: 40px;
+    padding-top: 30px;
     grid-gap: 25px;
+    margin-right: 5%;
+    padding-bottom: 30px;
+    justify-content: space-between;
+
 }
 
 .address-text {
     font-size: 18px;
     text-decoration: none;
+    color: black;
+
 }
 
 .spot-details {
@@ -58,6 +66,8 @@
     justify-content: flex-start;
     font-size: 15px;
     margin: 2px;
+    color:darkgrey;
+    text-decoration: none;
 }
 
 .spot-price {
@@ -65,4 +75,28 @@
     justify-content: flex-start;
     font-size: 15px;
     margin: 2px;
+    color: black;
 }
+
+.avg-rating {
+    color: black;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    border-top: 2px solid rgb(215,215,215);
+    bottom: 0;
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }

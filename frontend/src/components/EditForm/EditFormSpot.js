@@ -8,8 +8,9 @@ import { getOneSpot, getAllSpots } from '../../store/SpotsReducer';
 const EditFormSpot = ({ closeModal }) => {
   const dispatch = useDispatch();
   const { spotId } = useParams();
-  const allSpots = useSelector(state => Object.values(state.spots))
-  const currentSpot = allSpots.find(spot => spot.id === spotId)
+  const currentSpot = useSelector(state => state.spot[spotId])
+  // const allSpots = useSelector(state => Object.values(state.spots))
+  // const currentSpot = allSpots.find(spot => spot.id === spotId)
   const history = useHistory();
 
 
