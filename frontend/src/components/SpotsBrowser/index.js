@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSpots } from "../../store/SpotsReducer";
 import { Link } from 'react-router-dom'
+import './AllSpots.css'
 // import CreateSpotModal from "../CreateSpotForm";
 
 
@@ -24,7 +25,7 @@ const AllSpots = () => {
                 {spot.map(spots => {
                     return (
                     <div className = 'spotCard'>
-                    <Link key={spots.address} to={`/spots/${spots.id}`}>
+                    <Link className="spot-link" key={spots.address} to={`/spots/${spots.id}`}>
                     <div className="all-spots">
                     <div><img className="spot-image" src={spots.previewImage} /></div>
                     <div className="spot-details">
@@ -32,8 +33,8 @@ const AllSpots = () => {
                     <h4 className="avg-rating">★{spots.avgRating ? spots.avgRating : '0.0'}</h4>
                     </div>
 
-                    <h6>{spots.name}</h6>
-                    <h6>{spots.price} per night</h6>
+                    <h6 className="spot-name">{spots.name}</h6>
+                    <h6 className="spot-price">{spots.price} per night</h6>
                     </div>
                     </Link>
             </div>
