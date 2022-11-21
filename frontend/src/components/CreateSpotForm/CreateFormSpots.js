@@ -72,13 +72,14 @@ const CreateSpotForm = ({ closeModal }) => {
     <>
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Create a Spot</h1>
+        {/* <h1>Create a Spot</h1> */}
         <div>
           {validationErrors.length > 0 &&
           validationErrors.map((error) => <div className="errors-container" key={error}>{error}</div>)}
         </div>
 
         <input
+        className="input"
         placeholder="Name your spot"
         id="name"
         type="string"
@@ -87,6 +88,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updateName} />
 
         <input
+        className="input"
         placeholder="Address"
         id="address"
         type="string"
@@ -95,6 +97,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updateAddress} />
 
         <input
+        className="input"
         placeholder="City"
         id="city"
         type="string"
@@ -103,6 +106,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updateCity} />
 
         <input
+        className="input"
         placeholder="State"
         id="state"
         type="string"
@@ -111,6 +115,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updateState} />
 
         <input
+        className="input"
         placeholder="Country"
         id="country"
         type="string"
@@ -119,6 +124,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updateCountry} />
 
         <input
+        className="input"
         placeholder="Description"
         id="description"
         type="string"
@@ -127,6 +133,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updateDescription} />
 
         <input
+        className="input"
         placeholder="Price"
         id="price"
         type="number"
@@ -136,6 +143,7 @@ const CreateSpotForm = ({ closeModal }) => {
         onChange={updatePrice} />
 
         <input
+        className="input"
         placeholder="Image Url"
         id="image"
         type="string"
@@ -143,7 +151,7 @@ const CreateSpotForm = ({ closeModal }) => {
         value={url}
         onChange={updateUrl} />
 
-        <button className="submitButton" type="submit" disabled = {validationErrors.length > 0}>Create New Spot</button>
+        <button className="submit-btn" type="submit" disabled = {validationErrors.length > 0}>Create New Spot</button>
 
       </form>
     </div>

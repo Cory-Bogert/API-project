@@ -53,24 +53,17 @@ function ProfileButton({ user, setLogin, setShowModal }) {
       <>
         <button className='user-profile-btn' onClick={openMenu}>
           <div className='user-proflie-icons'>
-            <i className='fa-solid fa-bars'></i>
             <i className='navbar-user-circle fas fa-user-circle fa-2x'></i>
           </div>
         </button>
 
         {showMenu && (
           <ul className='user-dropdown'>
-            <li className='user-info'>Welcome {user.firstName}</li>
-            <li className='user-info'>{user.email}</li>
-            <li>
-              <NavLink exact to='/current/spots'>Spots</NavLink>
-            </li>
-            <li>
-              <NavLink exact to='/current/reviews'>Reviews</NavLink>
-            </li>
-            <li>
+            <ul className='user-info'>Welcome {user.firstName}</ul>
+            <ul className='user-info'>{user.email}</ul>
+            <ul>
               <button className='logout-btn' onClick={logout}>Logout</button>
-            </li>
+            </ul>
           </ul>
         )}
       </>
@@ -79,8 +72,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     return (
       <>
         <button className='user-profile-btn' onClick={openMenu}>
-          <div className='user-proflie-icons'>
-            <i className='fa-solid fa-bars fa-lg'></i>
+          <div className='user-profile-icons'>
             <i className='navbar-user-circle fas fa-user-circle fa-2x'></i>
           </div>
         </button>

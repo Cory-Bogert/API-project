@@ -9,9 +9,8 @@ const CreateReview = ({closeModal}) => {
   const history = useHistory()
   const { spotId } = useParams()
 
-  // const sessionUser = useSelector(state => state.sessoin.user)
-  // const reviews = useSelector(state => state.reviews)
-  // const currentSpot = useSelector(state => state.spots.spotId)
+  // const sessionUser = useSelector(state => state.session.user.id)
+  // const reviews = Object.values(useSelector(state => state.Reviews))
 
   const [stars, setStars] = useState(1)
   const [review, setReview] = useState("")

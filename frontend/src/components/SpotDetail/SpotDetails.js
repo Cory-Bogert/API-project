@@ -39,14 +39,13 @@ const SpotDetails = () => {
 
 
     return (
-        <>
+        <div className='spot-container'>
            <div className='spot-card'>
             <h1>{spot.name}</h1>
-            <button onClick={deleteThisSpot}>Delete Spot</button>
+            <button className='delete-btn' onClick={deleteThisSpot}>Delete Spot</button>
            </div>
 
-           <div>
-            {/* <i className='fa-solid fa-star'></i> */}
+           <div className='spot-details'>
 
              {spot.address} {spot.city} {spot.state}
            </div>
@@ -55,7 +54,11 @@ const SpotDetails = () => {
             <img className='spot-image' src={spot.previewImage} alt='spot'/>
            </div>
 
-           <div>
+           <div className='host-container'>
+           {`${spot.name} hosted by Cory`}
+           </div>
+
+           <div className='description-container'>
             {spot.description}
            </div>
 
@@ -63,11 +66,11 @@ const SpotDetails = () => {
             {`$${spot.price} per night`}
            </div>
 
-           <div>
-            ★{!spot.avgRating ? '0' : spot.avgRating}
+           <div className='stars-rating'>
+            ★{spot.avgRating}
            </div>
 
-           {/* {<reviewsReducer />} */}
+           {<reviewsReducer />}
 
            {sessionUser && sessionUser.id === spot.ownerId ? null : (
             <div className='create-review'>
@@ -86,7 +89,7 @@ const SpotDetails = () => {
            </footer>
 
 
-        </>
+        </div>
     )
 
 }

@@ -4,9 +4,9 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import AllSpots from "./components/SpotsBrowser";
-// import CreateSpotForm from "./components/CreateSpotForm/CreateFormSpots";
+
 import SpotDetails from "./components/SpotDetail/SpotDetails";
-// import currentUserSpots from "./components/CurrentSpots";
+
 
 
 
@@ -28,6 +28,8 @@ function App() {
           <Route exact path='/spots/:spotId'>
             <SpotDetails />
           </Route>
+
+
 
 
         </Switch>

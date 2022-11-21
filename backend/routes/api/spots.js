@@ -347,7 +347,7 @@ router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, 
     const { user } = req
     const { review, stars } = req.body
     const { spotId } = req.params
-    const userId = req.user.dataValues.id
+    // const userId = req.user.dataValues.id
     const findSpot = await Spot.findByPk(spotId)
 
     const reviews = await Review.findAll({
@@ -381,7 +381,7 @@ router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, 
     }
 
     const newReview = await Review.create({
-        userId, spotId, review, stars
+        user, spotId, review, stars
     })
 
     res.status(201)

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateReview from './CreateReview';
-
+import './createReview.css'
 function CreateReviewModal() {
     const [showModal, setShowModal] = useState(false)
 

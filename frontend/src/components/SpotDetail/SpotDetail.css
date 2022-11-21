@@ -2,3 +2,49 @@
     text-align: left;
     width: 800px;
 }
+
+.spot-container {
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.delete-btn {
+    background-color: #ff383c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.host-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.spot-details {
+    font-size: 15px;
+    display: flex;
+    font-style: underline;
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+.stars-rating {
+    padding: 3px;
+}
+
+.description-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer {
+    z-index: -1;
+    position: relative;
+}

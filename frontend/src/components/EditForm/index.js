@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import EditFormSpot from './EditFormSpot'
+import './EditForm.css'
 
 function EditSpotFormModal() {
     const [showModal, setShowModal] = useState(false)
@@ -11,7 +12,7 @@ function EditSpotFormModal() {
 
     return (
         <>
-            <button className="editSpotBtn" onClick={() => setShowModal(true)}>Edit Spot</button>
+            <button className="edit-btn" onClick={() => setShowModal(true)}>Edit Spot</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditFormSpot closeModal={closeModal} />

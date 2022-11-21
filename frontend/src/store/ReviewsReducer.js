@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf';
 
+
 //action types
 export const READ = "reviews/READ"; //getting all reviews
 export const CREATE = "reviews/CREATE"; //creating &
@@ -14,10 +15,9 @@ const CreateReview = (review) => ({
     type: CREATE,
     review
 });
-const remove = (id) => ({
+const remove = (review) => ({
     type: REMOVE,
-    // itemId,
-    id
+    review
 })
 
 //thunk

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { deleteSpot } from "../../store/SpotsReducer";
 import { useHistory } from "react-router-dom";
+import './index.css'
 
 const DeleteSpot = () => {
     const dispatch = useDispatch()
@@ -18,7 +19,7 @@ const DeleteSpot = () => {
 
     return (
         <div>
-            <button onClick={submitDelete}>Delete</button>
+            <button className='delete-btn' onClick={submitDelete}>Delete</button>
         </div>
     )
 }

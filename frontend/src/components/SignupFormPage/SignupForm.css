@@ -1,32 +1,26 @@
 .signup-input{
-    width: 520px;
-    height: 60px;
-    margin:0px;
-    border:0px;
-    padding:0px;
-    border: 1px solid #afafaf;
+    border: 2px solid #ff383c;
+    border-radius: 2px;
+    display: flex;
 }
 
 .signup-container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
     display: flex;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .signup-btn {
-    width: 520px;
-    height: 60px;
     background-color: #ff383c;
-    border:none;
+    color: white;
+    border: none;
     border-radius: 8px;
-    font-family: 'Manrope', sans-serif;
+    margin: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/* #Modal-signup{
-    height: 50px;
-    width: 182px;
-}
-#error{
-    color:red;
-    list-style-type: none;
-    font-size: 10px;
-} */

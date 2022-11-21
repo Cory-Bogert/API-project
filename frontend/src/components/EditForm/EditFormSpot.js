@@ -63,13 +63,14 @@ const EditFormSpot = ({ closeModal }) => {
     <>
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Edit Spot</h1>
+        {/* <h1>Edit Spot</h1> */}
         <div>
           {validationErrors.length > 0 &&
           validationErrors.map((error) => <div className="errors-container" key={error}>{error}</div>)}
         </div>
 
         <input
+        className='input'
         placeholder="Name your spot"
         id="name"
         type="string"
@@ -78,6 +79,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updateName} />
 
         <input
+        className='input'
         placeholder="Address"
         id="address"
         type="string"
@@ -86,6 +88,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updateAddress} />
 
         <input
+        className='input'
         placeholder="City"
         id="city"
         type="string"
@@ -94,6 +97,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updateCity} />
 
         <input
+        className='input'
         placeholder="State"
         id="state"
         type="string"
@@ -102,6 +106,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updateState} />
 
         <input
+        className='input'
         placeholder="Country"
         id="country"
         type="string"
@@ -110,6 +115,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updateCountry} />
 
         <input
+        className='input'
         placeholder="Description"
         id="description"
         type="string"
@@ -118,6 +124,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updateDescription} />
 
         <input
+        className='input'
         placeholder="Price"
         id="price"
         type="number"
@@ -127,7 +134,7 @@ const EditFormSpot = ({ closeModal }) => {
         onChange={updatePrice} />
 
 
-        <button className="submitButton" type="submit" disabled = {validationErrors.length > 0}>Update Spot</button>
+        <button  className="edit-btn" type="submit" disabled = {validationErrors.length > 0}>Update Spot</button>
 
       </form>
     </div>
