@@ -13,7 +13,7 @@ const CreateReview = ({closeModal}) => {
   // const reviews = useSelector(state => state.reviews)
   // const currentSpot = useSelector(state => state.spots.spotId)
 
-  const [stars, setStars] = useState("")
+  const [stars, setStars] = useState(1)
   const [review, setReview] = useState("")
   const [validationErrors, setValidationErrors] = useState([])
 
@@ -37,7 +37,7 @@ const CreateReview = ({closeModal}) => {
       spotId
     }
 
-    const newReview = await dispatch(createReview(reviewPayload))
+    const newReview = await dispatch(createReviews(reviewPayload))
     dispatch(getAllReviews(spotId))
     dispatch(getOneSpot(spotId))
     closeModal()
@@ -59,7 +59,7 @@ const CreateReview = ({closeModal}) => {
           id='review'
           type='text'
           value={review}
-          onchange={updateReview}
+          onChange={updateReview}
         />
 
         <input
@@ -68,7 +68,7 @@ const CreateReview = ({closeModal}) => {
           id='stars'
           type='number'
           value={stars}
-          onchange={updateStars}
+          onChange={updateStars}
         />
 
         <button className='submit-btn' disabled={validationErrors.length > 0} type='submit' >Create Review</button>

@@ -18,7 +18,7 @@ const CreateSpotForm = ({ closeModal }) => {
   const [description, setDescription] = useState("")
   const [price, setPrice] = useState("")
   const [url, setUrl] = useState("")
-  const [preview, setPreview] = useState(false)
+  // const [preview, setPreview] = useState(false)
 
   const updateName = (e) => setName(e.target.value);
   const updateAddress = (e) => setAddress(e.target.value);
@@ -28,7 +28,7 @@ const CreateSpotForm = ({ closeModal }) => {
   const updateDescription = (e) => setDescription(e.target.value);
   const updatePrice = (e) => setPrice(e.target.value);
   const updateUrl = (e) => setUrl(e.target.value)
-  const updatePreview = (e) => setPreview(!preview)
+  // const updatePreview = (e) => setPreview(!preview)
 
   useEffect(() => {
     const errors = [];

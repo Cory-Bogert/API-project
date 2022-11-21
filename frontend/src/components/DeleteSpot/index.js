@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { deleteSpot } from "../../store/SpotsReducer";
 import { useHistory } from "react-router-dom";
@@ -6,7 +7,7 @@ const DeleteSpot = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const spotArr = useSelector(state => state.spots)
-    let spots = Object.values(spotArr)
+    const spots = Object.values(spotArr)
     const spot = spots[0]
 
     const submitDelete = (e) => {

@@ -60,7 +60,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
 
         {showMenu && (
           <ul className='user-dropdown'>
-            <CreateSpotModal />
+            {/* <CreateSpotModal /> */}
             <li className='user-info'>Welcome {user.firstName}</li>
             <li className='user-info'>{user.email}</li>
             <li>
