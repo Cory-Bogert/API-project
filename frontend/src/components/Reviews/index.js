@@ -19,7 +19,7 @@ const AllReviews = () => {
 
     useEffect(() => {
         dispatch(getAllReviews(spotId))
-        // dispatch(getOneSpot(spotId))
+
     }, [dispatch, spotId])
 
     const allReviews = useSelector(state => Object.values(state.reviews))
