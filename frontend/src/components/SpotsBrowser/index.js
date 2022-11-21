@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllSpots } from "../../store/SpotsReducer";
 import { Link } from 'react-router-dom'
 import './AllSpots.css'
-// import CreateSpotModal from "../CreateSpotForm";
+
 
 
 const AllSpots = () => {

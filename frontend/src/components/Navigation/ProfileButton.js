@@ -6,7 +6,6 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormPage";
 import LoginForm from "../LoginFormModal/LoginForm";
 import SignupFormPage from "../SignupFormPage/SignupForm";
-// import CreateSpotModal from "../CreateSpotForm";
 import DemoUser from "../Demo";
 import { Modal } from "../../context/Modal";
 
@@ -43,10 +42,6 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     history.push('/')
   };
 
-  // const mySpots = (e) => {
-  //   e.preventDefault()
-  //   history.push('/current/spots')
-  // }
 
   if(sessionUser){
     return (

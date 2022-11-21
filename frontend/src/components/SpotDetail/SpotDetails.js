@@ -2,24 +2,23 @@
 import React, {  useEffect } from 'react';
 import { useParams,  } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+
 import './SpotDetail.css'
 
 import { getAllSpots, deleteSpot } from "../../store/SpotsReducer";
 import { getAllReviews } from '../../store/ReviewsReducer';
 import CreateReviewModal from '../CreateReviewForm';
-// import { deleteSpot } from '../../store/SpotsReducer';
-// import DeleteSpot from '../DeleteSpot';
+
 
 import EditSpotFormModal from '../EditForm';
 
 
 
 const SpotDetails = () => {
-    // const history = useHistory()
+
     const allSpots = useSelector(state => Object.values(state.spot))
     const { spotId } = useParams()
-    // let allReviews = useSelector(state => Object.values(state.review))
+
     let sessionUser = useSelector(state => (state.session.user))
     const spot = allSpots.find(spot => spot.id === +spotId)
     const dispatch = useDispatch()
@@ -33,7 +32,7 @@ const SpotDetails = () => {
 
     const deleteThisSpot = () => {
         const sendThisSpotToOblivion = dispatch(deleteSpot(spotId))
-        // .then(() => dispatch(getAllSpots())).then(() => history.push(`/`))
+
     }
 
 

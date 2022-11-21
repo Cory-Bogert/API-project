@@ -9,8 +9,6 @@ const EditFormSpot = ({ closeModal }) => {
   const dispatch = useDispatch();
   const { spotId } = useParams();
   const currentSpot = useSelector(state => state.spot[spotId])
-  // const allSpots = useSelector(state => Object.values(state.spots))
-  // const currentSpot = allSpots.find(spot => spot.id === spotId)
   const history = useHistory();
 
 
@@ -63,7 +61,6 @@ const EditFormSpot = ({ closeModal }) => {
     <>
     <div>
       <form onSubmit={handleSubmit}>
-        {/* <h1>Edit Spot</h1> */}
         <div>
           {validationErrors.length > 0 &&
           validationErrors.map((error) => <div className="errors-container" key={error}>{error}</div>)}
