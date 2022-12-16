@@ -5,28 +5,33 @@ const READ_SPOTS = 'spots/READ'
 const READ_SINGLE_SPOT = 'spots/READ_SINGLE_SPOT'
 const CREATE = 'spots/CREATE'
 const DELETE = 'spots/DELETE'
-// const UPDATE = 'spots/UPDATE'
+const UPDATE = 'spots/UPDATE'
 
 
 //action creators
-const getAll = spots => ({
+const getAll = (spots) => ({
     type: READ_SPOTS,
     spots
 })
 
-const getOne = spot => ({
+const getOne = (spot) => ({
     type: READ_SINGLE_SPOT,
     spot
 })
 
-const create = spot => ({
+const create = (spot) => ({
     type: CREATE,
     spot
 })
 
-const remove = spotId => ({
+const remove = (spotId) => ({
     type: DELETE,
     spotId
+})
+
+const edit = (spot) => ({
+    type: UPDATE,
+    spot
 })
 
 //thunks
@@ -43,8 +48,8 @@ export const getAllSpots = () => async dispatch => {
 export const getOneSpot = (spotId) => async dispatch => {
     const response = await fetch(`/api/spots/${spotId}`)
     if(response.ok){
-        const spot = await response.json()
-        dispatch(getOne(spot))
+        const spotList = await response.json()
+        dispatch(getOne(spotList))
     }
 }
 
@@ -73,6 +78,7 @@ export const createSpot = (imagePayload, payload) => async dispatch => {
 
 }
 
+
 //update
 export const updateSpot = payload => async dispatch => {
     const response = await csrfFetch(`/api/spots/${payload.id}`, {
@@ -85,7 +91,7 @@ export const updateSpot = payload => async dispatch => {
 
     if(response.ok) {
         const spot = await response.json()
-        dispatch(create(spot))
+        dispatch(edit(spot))
         return spot
     }
 }
@@ -119,7 +125,6 @@ const spotsReducer = (state = initialState, action) => {
                 ...state,
                 ...allSpots
             }
-
         case READ_SINGLE_SPOT:
             const oneState = {...state}
             oneState[action.spot.id] = action.spot

@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { getAllReviews, createReviews, deleteReview } from '../../store/ReviewsReducer';
+import { getAllReviews, createReviews } from '../../store/reviews';
 import { getOneSpot } from '../../store/SpotsReducer';
+// import AllSpots from '../SpotsBrowser';
 
 const CreateReview = ({closeModal}) => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { spotId } = useParams()
+  let { spotId } = useParams()
+  spotId = parseInt(spotId)
+  console.log(spotId, 'this is the spotid -------------')
 
 
+  const sessionUser = useSelector(state => state.session.user)
+  let userId
+  if(sessionUser){
+    userId = sessionUser.id
+  }
+
+
+  console.log(sessionUser, 'sessionusersssssssssssssssssssssssssssssssssssssssssss')
   const [stars, setStars] = useState(1)
   const [review, setReview] = useState("")
   const [validationErrors, setValidationErrors] = useState([])
@@ -17,29 +28,38 @@ const CreateReview = ({closeModal}) => {
   const updateReview = (e) => setReview(e.target.value)
   const updateStars = (e) => setStars(e.target.value)
 
+
+
+
+
   useEffect(() => {
     const errors = []
     if(stars < 1 || stars > 5) errors.push("Rating needs to be between 1 and 5")
     if(review.length > 254) errors.push("Reviews must be less than 255 characters")
+    if(review.length < 1) errors.push('Please provide a review')
+    if(!sessionUser) errors.push('User must be logged in to leave a review')
 
     setValidationErrors(errors)
-
   }, [stars, review])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const reviewPayload = {
+    const payload = {
       review,
       stars,
-      spotId
+      spotId,
+      userId
     }
 
-    const newReview = await dispatch(createReviews(reviewPayload))
+    let createdReview = await dispatch(createReviews(payload))
     dispatch(getAllReviews(spotId))
     dispatch(getOneSpot(spotId))
     closeModal()
     history.push(`/spots/${spotId}`)
+    // if(newReview) closeModal()
+
   }
+
 
   return (
     <div className='create-review-container'>

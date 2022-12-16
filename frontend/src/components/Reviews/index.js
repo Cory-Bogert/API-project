@@ -1,16 +1,15 @@
 import React, { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, Route, useParams } from 'react-router-dom'
-import { deleteReview, getAllReviews } from "../../store/ReviewsReducer";
+import { getAllReviews } from "../../store/reviews";
 import { getAllSpots, getOneSpot } from "../../store/SpotsReducer";
-import { deleteReview } from "../../store/ReviewsReducer";
+import { deleteReview } from "../../store/reviews";
+import './reviews.css'
 
 const AllReviews = () => {
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const { spotId } = useParams()
-    const spotsArr = useSelector(state => Object.values(state.spots))
-    const spot = spotsArr.find(oneSpot => oneSpot.id === +spotId)
 
     let sessionUserId
     if(sessionUser) {
@@ -19,24 +18,34 @@ const AllReviews = () => {
 
     useEffect(() => {
         dispatch(getAllReviews(spotId))
-
+        dispatch(getOneSpot(spotId))
     }, [dispatch, spotId])
 
+    let currentSpot = useSelector(state => state.spots)
+    currentSpot = currentSpot[spotId]
+    // console.log(currentSpot, '222222222222---this is current spot----22222222222')
+
+
+
     const allReviews = useSelector(state => Object.values(state.reviews))
+    // console.log(allReviews, 'this is all of the reviews88888888888')
     const reviews = allReviews.filter(review => review.spotId === +spotId)
 
     const handleDelete = async (reviewId) => {
-        const deleteReview = await dispatch(deleteReview(reviewId)).then (() => dispatch(getOneSpot(spotId)))
+        await dispatch(deleteReview(reviewId)).then (() => dispatch(getOneSpot(spotId)))
     }
 
-    if(!spot) return null
 
     return (
         <div className="outter-container-reviews">
             {reviews.map((review) => {
                 return (
                     <div className="inner-container-reviews">
-                        <div>{review.User.firstName}★{review.stars} {sessionUserId === review.userId ? <button className = 'deleteReviewButton' onClick = {() => handleDelete(review.id)}>Delete Review</button> : null}</div>
+                        <div className="">{review.User.firstName}
+                        ★{review.stars}
+                        {review.review}
+                        {sessionUserId === review.userId ? <button className = 'deleteReviewButton' onClick = {() => handleDelete(review.id)}>Delete Review</button> : null}
+                        </div>
                     </div>
                 )
             })}

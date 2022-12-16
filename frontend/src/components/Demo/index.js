@@ -11,7 +11,7 @@ function DemoUser() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential:'Demo-lition', password:'password' }))}
+    dispatch(sessionActions.login({ credential:'Demo-lition', password:'password' }))}
     return(
         <button className="demo-btn" onClick={handleSubmit} type="submit">Demo User</button>
     )

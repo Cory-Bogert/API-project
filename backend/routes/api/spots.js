@@ -344,14 +344,18 @@ router.get('/:spotId/reviews', async (req, res, next) => {
 //Not working
 //create a review for a spot based on the spot's id -- not working yet
 router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, res, next) => {
-    const { user } = req
+    const userId = req.user.id
     const { review, stars } = req.body
     const { spotId } = req.params
     // const userId = req.user.dataValues.id
     const findSpot = await Spot.findByPk(spotId)
 
-    const reviews = await Review.findAll({
-        include: [{ model: Spot, where: { id: spotId }}]
+    const reviews = await Review.findOne({
+        // include: [{ model: Spot, where: { id: spotId }}]
+        where: {
+            userId: userId,
+            spotId: spotId
+        }
     })
     if(stars < 0 || stars > 5 ){
         return res.status(400).json({
@@ -364,8 +368,9 @@ router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, 
         })
     }
 
-    if(reviews.length > 0){
+    if(reviews){
         res.status(403)
+        console.log(res.status, 'what is this error code doing')
         return res.json({
             'message': 'User already has a review for this spot',
             'statusCode': 403
@@ -381,7 +386,10 @@ router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, 
     }
 
     const newReview = await Review.create({
-        user, spotId, review, stars
+        stars,
+        review,
+        spotId,
+        userId
     })
 
     res.status(201)

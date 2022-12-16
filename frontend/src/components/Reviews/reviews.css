@@ -1,0 +1,20 @@
+.inner-container.reviews{
+    width: 810px;
+    color: pink;
+    padding-bottom: 21px;
+    padding-top: 16px;
+    font-size: 16px;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    margin: 3px;
+
+}
+
+.deleteReviewButton{
+    background-color: #ff383c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 5px
+}

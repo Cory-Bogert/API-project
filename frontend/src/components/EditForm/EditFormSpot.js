@@ -6,10 +6,22 @@ import { getOneSpot, getAllSpots } from '../../store/SpotsReducer';
 // import SpotDetails from '../SpotDetail/SpotDetails';
 
 const EditFormSpot = ({ closeModal }) => {
+
   const dispatch = useDispatch();
-  const { spotId } = useParams();
-  const currentSpot = useSelector(state => state.spot[spotId])
+  let { spotId } = useParams();
+  spotId = parseInt(spotId)
+  // const currentSpot = useSelector(state => state.spot[spotId])
+  // console.log(state, 'I am the current spot refresh me')
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch(getOneSpot(spotId))
+  }, [dispatch, spotId])
+
+  // const currentSpot = useSelector(state => state.spot)
+
+  const allSpots = useSelector(state => Object.values(state.spots))
+  let currentSpot = allSpots.find(spot => spot.id === spotId)
 
 
   const [name, setName] = useState(currentSpot.name)
