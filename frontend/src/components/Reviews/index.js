@@ -44,7 +44,8 @@ const AllReviews = () => {
                         <div className="">{review.User.firstName}
                         ★{review.stars}
                         {review.review}
-                        {sessionUserId === review.userId ? <button className = 'deleteReviewButton' onClick = {() => handleDelete(review.id)}>Delete Review</button> : null}
+                        {sessionUserId === review.userId ?
+                        <button className = 'deleteReviewButton' onClick = {() => handleDelete(review.id)}>Delete Review</button> : null}
                         </div>
                     </div>
                 )

@@ -347,11 +347,9 @@ router.post('/:spotId/reviews', reviewValidationError, requireAuth, async (req, 
     const userId = req.user.id
     const { review, stars } = req.body
     const { spotId } = req.params
-    // const userId = req.user.dataValues.id
     const findSpot = await Spot.findByPk(spotId)
 
     const reviews = await Review.findOne({
-        // include: [{ model: Spot, where: { id: spotId }}]
         where: {
             userId: userId,
             spotId: spotId
