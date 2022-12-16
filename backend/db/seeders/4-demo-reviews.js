@@ -26,7 +26,86 @@ module.exports = {
         userId: 3,
         review: 'this is a review i am a review',
         stars: 3
-      }
+      },
+      {
+        spotId: 1,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 1
+      },
+      {
+        spotId: 1,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 5
+      },
+      {
+        spotId: 1,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 3
+      },
+      {
+        spotId: 1,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 1
+      },
+      {
+        spotId: 1,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 2
+      },
+      {
+        spotId: 2,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 3
+      },
+      {
+        spotId: 2,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 1
+      },
+      {
+        spotId: 2,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 5
+      },
+      {
+        spotId: 2,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 2
+      },
+      {
+        spotId: 2,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 1
+      },
+      {
+        spotId: 3,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 2
+      },
+      {
+        spotId: 3,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 2
+      },
+      {
+        spotId: 3,
+        userId: 2,
+        review: 'This was a bad review',
+        stars: 4
+      },
+
     ])
   },
 
