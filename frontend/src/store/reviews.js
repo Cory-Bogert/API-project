@@ -59,6 +59,8 @@ export const deleteReview = (reviewId) => async dispatch => {
         method: 'DELETE'
     });
     if(response.ok){
+        const review = await response.json()
+        console.log(review, 'this is the deleted review')
         dispatch(removeReview(reviewId))
     }
 }
@@ -75,6 +77,7 @@ const reviewsReducer = (state = initialState, action)=>{
             // console.log(spotReviews, '888888888888888888888')
             return {...spotReviews}
         case DELETE_REVIEW:
+            console.log(action.review, 'id------------------------id')
             let deletedReview= {...state}
             delete deletedReview[action.reviewId]
             return deletedReview

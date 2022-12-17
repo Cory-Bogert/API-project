@@ -9,10 +9,10 @@
 
 }
 
-.spot-link {
+/* .spot-link {
     margin-top: 20px;
     width: 10%;
-}
+} */
 
 .avg-rating {
     margin: 0;
@@ -29,12 +29,14 @@
 
 }
 
-/* .cardOuterContainer {
+.cardOuterContainer {
+    margin-top: 12px;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    gap: 10%;
-} */
+    justify-content: center;
+    width: 100%;
+    align-content: center;
+}
 
 .cardInnerContainer {
     display: grid;

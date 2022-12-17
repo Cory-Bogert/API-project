@@ -22,12 +22,12 @@ const spotValidationError = [
     check('country')
         .exists({ checkFalsy: true })
         .withMessage('Country is required'),
-    check('lat')
-        .exists({ checkFalsy: true })
-        .withMessage('Latitude is not valid'),
-    check('lng')
-        .exists({ checkFalsy: true })
-        .withMessage('Longitude is not valid'),
+    // check('lat')
+    //     .exists({ checkFalsy: true })
+    //     .withMessage('Latitude is not valid'),
+    // check('lng')
+    //     .exists({ checkFalsy: true })
+    //     .withMessage('Longitude is not valid'),
     check('name')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
@@ -263,7 +263,10 @@ router.put('/:spotId', spotValidationError, requireAuth, async(req, res, next) =
     const { spotId } = req.params
     const findSpot = await Spot.findByPk(spotId);
 
-    if(!address.length || !city.length || !state.length || !country.length || lat < -90 || lat > 90 || lng < -180 || lng > 180 || name.length > 50 || !name.length || !description.length || price < 0){
+    if(!address.length || !city.length || !state.length || !country.length ||
+        //  lat < -90 || lat > 90 || lng < -180 || lng > 180         ||
+         name.length > 50
+         || !name.length || !description.length || price < 0){
         return res.status(400).json({
             "message": "Validation Error",
             "statusCode": 400,
@@ -272,8 +275,8 @@ router.put('/:spotId', spotValidationError, requireAuth, async(req, res, next) =
                 "city": "City is required",
                 "state": "State is required",
                 "country": "Country is required",
-                "lat": "Latitude is not valid",
-                "lng": "Longitude is not valid",
+                // "lat": "Latitude is not valid",
+                // "lng": "Longitude is not valid",
                 "name": "Name must be less than 50 characters",
                 "description": "Description is required",
                 "price": "Price per day is required"

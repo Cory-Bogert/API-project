@@ -32,11 +32,11 @@ const SpotDetails = () => {
     // console.log(spot, 'adsl;kfjasd;lfk')
 
     const allReviews = useSelector(state=> Object.values(state.reviews))
-    console.log(allReviews, allReviews.length, 'this is all the reviews')
+    // console.log(allReviews, allReviews.length, 'this is all the reviews')
 
 
     const user = useSelector(state => (state.session.user))
-    console.log(user, 'this is the user')
+    // console.log(user, 'this is the user')
     // console.log(spot, 'asdl;fkjads')
 
 

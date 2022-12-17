@@ -18,9 +18,8 @@ const AllSpots = () => {
 
     return (
         <>
-
+            <div className="cardOuterContainer">
             <div className='cardInnerContainer'>
-
                 {spotsArr.map(spots => {
                     return (
                     <Link className="spot-link" key={spots.address} to={`/spots/${spots.id}`}>
@@ -39,6 +38,7 @@ const AllSpots = () => {
                     )
                 })}
             </div>
+        </div>
 
 <footer>
 <div className='footer'>
