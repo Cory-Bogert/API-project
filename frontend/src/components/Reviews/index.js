@@ -43,9 +43,11 @@ const AllReviews = () => {
     return (
         <div className="outter-container-reviews">
             {reviews.map((review) => {
+            // console.log(review.User.firstName, 'asd;lkfja;lsdfja;sdlfja;sdlfjk')
                 return (
                     <div className="inner-container-reviews">
-                        <div className="">{review.User.firstName}
+                        <div className="">
+                            {/* {review.User.firstName} */}
                         ★{review.stars}
                         {review.review}
                         {sessionUserId === review.userId ?
