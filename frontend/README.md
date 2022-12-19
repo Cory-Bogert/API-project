@@ -1,5 +1,7 @@
 # ErrorBnb
 
+ErrorBnb is a website inspired by [AirBnb](https://www.airbnb.com/)
+
 
 
 
