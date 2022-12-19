@@ -3,9 +3,16 @@
 ErrorBnb is a website inspired by [AirBnb](https://www.airbnb.com/)
 
 
-# TechStack
-![Javascript]
+# TechStack used
+Javascript
 React
+Express
+Redux
+CSS
+HTML
+
+# Link
+[ErrorBnb](https://errorbnb.onrender.com)
 
 
 
