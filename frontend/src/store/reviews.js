@@ -64,6 +64,7 @@ export const deleteReview = (reviewId) => async dispatch => {
         // console.log(review, 'this is the deleted review')
         // dispatch(removeReview(reviewId))
         dispatch(removeReview(reviewId))
+        return response
     }
 }
 
@@ -79,9 +80,9 @@ const reviewsReducer = (state = initialState, action)=>{
             // console.log(spotReviews, '888888888888888888888')
             return {...spotReviews}
         case DELETE_REVIEW:
-            console.log(action.review, 'id------------------------id')
+            // console.log(action.review.id, 'id------------------------id')
             let deletedReview= {...state}
-            delete deletedReview[action.spotId]
+            delete deletedReview[action.reviewId]
             return deletedReview
         case CREATE_REVIEW:
             let createdReview = {...state}
