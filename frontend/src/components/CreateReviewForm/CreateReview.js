@@ -10,8 +10,17 @@ const CreateReview = ({closeModal}) => {
   const history = useHistory()
   let { spotId } = useParams()
   spotId = parseInt(spotId)
-  console.log(spotId, 'this is the spotid -------------')
 
+
+  // console.log(spotId, 'this is the spotid -------------')
+
+  const allSpots = useSelector(state => Object.values(state.spots))
+  // console.log(allSpots, 'this is all of the spots listed array')
+
+  useEffect(() => {
+    // dispatch(getOneSpot(spotId))
+    dispatch(getAllReviews(spotId))
+  }, [dispatch])
 
   const sessionUser = useSelector(state => state.session.user)
   let userId
@@ -19,18 +28,13 @@ const CreateReview = ({closeModal}) => {
     userId = sessionUser.id
   }
 
-
-  console.log(sessionUser, 'sessionusersssssssssssssssssssssssssssssssssssssssssss')
+  // console.log(sessionUser, 'sessionusersssssssssssssssssssssssssssssssssssssssssss')
   const [stars, setStars] = useState(1)
   const [review, setReview] = useState("")
   const [validationErrors, setValidationErrors] = useState([])
 
   const updateReview = (e) => setReview(e.target.value)
   const updateStars = (e) => setStars(e.target.value)
-
-
-
-
 
   useEffect(() => {
     const errors = []
@@ -48,14 +52,17 @@ const CreateReview = ({closeModal}) => {
       review,
       stars,
       spotId,
-      userId
+      // userId
     }
 
     let createdReview = await dispatch(createReviews(payload))
-    dispatch(getAllReviews(spotId))
-    dispatch(getOneSpot(spotId))
-    closeModal()
-    history.push(`/spots/${spotId}`)
+    if(createdReview){
+
+      // dispatch(getOneSpot(spotId))
+      // dispatch(getAllReviews(spotId))
+      closeModal()
+      // history.push(`/spots/${spotId}`)
+    }
     // if(newReview) closeModal()
 
   }

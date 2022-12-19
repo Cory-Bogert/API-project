@@ -1,11 +1,18 @@
 // import React, { useState } from 'react'
 // import { useDispatch, useSelector } from "react-redux";
 // import { deleteReview } from '../../store/reviews';
-// import { useHistory } from "react-router-dom";
+// import { useHistory, useParams } from "react-router-dom";
 // import './index.css'
 
 // const DeleteReview = () => {
 //     const dispatch = useDispatch()
 //     const history = useHistory()
-//     const reviews
+//     let { reviewId } = useParams()
+//     reviewId = parseInt(reviewId)
+
+//     const handleSubmit = async (e) => {
+//         e.preventDefault()
+//         let deletedReview = await dispatch(deleteReview(reviewId))
+//         history.push(`/current/reviews`)
+//     }
 // }

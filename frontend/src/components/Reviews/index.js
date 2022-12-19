@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, Route, useParams } from 'react-router-dom'
+import { Link, NavLink, Route, useHistory, useParams } from 'react-router-dom'
 import { getAllReviews } from "../../store/reviews";
 import { getAllSpots, getOneSpot } from "../../store/SpotsReducer";
 import { deleteReview } from "../../store/reviews";
@@ -10,6 +10,7 @@ const AllReviews = () => {
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const { spotId } = useParams()
+    const history = useHistory()
 
     let sessionUserId
     if(sessionUser) {
@@ -17,8 +18,8 @@ const AllReviews = () => {
     }
 
     useEffect(() => {
+        // dispatch(getOneSpot(spotId))
         dispatch(getAllReviews(spotId))
-        dispatch(getOneSpot(spotId))
     }, [dispatch, spotId])
 
     let currentSpot = useSelector(state => state.spots)
@@ -32,7 +33,9 @@ const AllReviews = () => {
     const reviews = allReviews.filter(review => review.spotId === +spotId)
 
     const handleDelete = async (reviewId) => {
-        await dispatch(deleteReview(reviewId)).then (() => dispatch(getOneSpot(spotId)))
+        await dispatch(deleteReview(reviewId))
+        dispatch(getOneSpot(spotId))
+        history.push(`/spots/${spotId}`)
     }
 
 

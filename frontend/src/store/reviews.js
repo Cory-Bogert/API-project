@@ -30,6 +30,7 @@ export const getAllReviews = (spotId) => async dispatch => {
         const reviewsList = await response.json()
         // console.log(reviewsList, '************************')
         dispatch(getReviews(reviewsList))
+        return response
     }
 
 }
@@ -59,8 +60,9 @@ export const deleteReview = (reviewId) => async dispatch => {
         method: 'DELETE'
     });
     if(response.ok){
-        const review = await response.json()
-        console.log(review, 'this is the deleted review')
+        // const review = await response.json()
+        // console.log(review, 'this is the deleted review')
+        // dispatch(removeReview(reviewId))
         dispatch(removeReview(reviewId))
     }
 }
@@ -79,7 +81,7 @@ const reviewsReducer = (state = initialState, action)=>{
         case DELETE_REVIEW:
             console.log(action.review, 'id------------------------id')
             let deletedReview= {...state}
-            delete deletedReview[action.reviewId]
+            delete deletedReview[action.spotId]
             return deletedReview
         case CREATE_REVIEW:
             let createdReview = {...state}

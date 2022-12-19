@@ -31,6 +31,7 @@ const EditFormSpot = ({ closeModal }) => {
   const [country, setCountry] = useState(currentSpot.country)
   const [description, setDescription] = useState(currentSpot.description)
   const [price, setPrice] = useState(currentSpot.price)
+  const [previewImage, setPreviewImage] = useState(currentSpot.previewImage)
   const [validationErrors, setValidationErrors] = useState([])
 
   const updateName = (e) => setName(e.target.value)
@@ -40,14 +41,22 @@ const EditFormSpot = ({ closeModal }) => {
   const updateCountry = (e) => setCountry(e.target.value)
   const updateDescription = (e) => setDescription(e.target.value)
   const updatePrice = (e) => setPrice(e.target.value)
+  const updatePreviewImage = (e) => setPreviewImage(e.target.value)
 
   useEffect(() => {
     const errors = []
     if(price < 0) {errors.push('Minimum price must be at least $0')}
     if(description.length > 254){errors.push("Description can't exceed 255 characters")}
+    if(!address.length) {errors.push('Address is required')}
+    if(!city.length){errors.push('City is required')}
+    if(!state.length){errors.push('State is required')}
+    if(!country.length){errors.push('Country is required')}
+    if(!description.length){errors.push('Description is required')}
+    if(name.length < 3){errors.push('Name must be 3 or more characters')}
+
 
     setValidationErrors(errors)
-  }, [price, description])
+  }, [price, description, address, city, state, country, description, name])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -60,13 +69,18 @@ const EditFormSpot = ({ closeModal }) => {
         state,
         country,
         description,
-        price
+        price,
+        previewImage
     }
 
-    const updatedSpot = await dispatch(updateSpot(payload))
-    dispatch(getOneSpot(spotId))
-    closeModal()
-    history.push(`/spots/${spotId}`)
+    return dispatch(updateSpot(payload)).then(async (response) => {
+      console.log(spotId, 'this is the spotId ================')
+      history.push(`/spots/${spotId}`)
+      closeModal()
+    })
+    // dispatch(getOneSpot(spotId))
+    // closeModal()
+    // history.push(`/spots/${spotId}`)
   }
 
   return (

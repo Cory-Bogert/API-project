@@ -7,6 +7,9 @@ import AllSpots from "./components/SpotsBrowser";
 
 
 import SpotDetails from "./components/SpotDetail/SpotDetails";
+import CreateSpotForm from "./components/CreateSpotForm/CreateFormSpots";
+import EditFormSpot from "./components/EditForm/EditFormSpot";
+import CreateReview from "./components/CreateReviewForm/CreateReview";
 
 
 
@@ -28,6 +31,15 @@ function App() {
           </Route>
           <Route exact path='/'>
             <AllSpots />
+          </Route>
+          <Route exact path='/spots/new'>
+            <CreateSpotForm />
+          </Route>
+          <Route exact path='/spots/:spotId/edit'>
+            <EditFormSpot />
+          </Route>
+          <Route exact path='/spots/:spotId/create-review'>
+            <CreateReview />
           </Route>
 
 

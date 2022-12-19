@@ -4,7 +4,7 @@ import { useParams,  NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './SpotDetail.css'
 import { getAllSpots, deleteSpot, getOneSpot } from "../../store/SpotsReducer";
-import { getAllReviews, createReviews } from '../../store/reviews';
+import { getAllReviews } from '../../store/reviews';
 import CreateReviewModal from '../CreateReviewForm';
 import EditSpotFormModal from '../EditForm';
 import AllReviews from '../Reviews';
@@ -21,10 +21,10 @@ const SpotDetails = () => {
     spotId = parseInt(spotId)
     // console.log(spotId, '------------------------')
 
-    useEffect(() => {
-        // dispatch((getAllSpots()))
-        dispatch((getAllReviews(spotId)))
-    }, [dispatch])
+    // useEffect(() => {
+    //     // dispatch((getAllSpots()))
+    //     dispatch((getAllReviews(spotId)))
+    // }, [dispatch])
 
     const allSpots = useSelector(state =>Object.values(state.spots))
     // console.log(allSpots, 'asd;lfkjasdf')
@@ -35,24 +35,14 @@ const SpotDetails = () => {
     // console.log(allReviews, allReviews.length, 'this is all the reviews')
 
 
-    const user = useSelector(state => (state.session.user))
+    const user = useSelector(state => state.session.user)
     // console.log(user, 'this is the user')
     // console.log(spot, 'asdl;fkjads')
 
 
-
-    // const allSpots = useSelector(state => Object.values(state.spot))
-    // const { spotId } = useParams()
-
-    // let sessionUser = useSelector(state => (state.session.user))
-    // const spot = allSpots.find(spot => spot.id === +spotId)
-    // const dispatch = useDispatch()
-
-
-
     useEffect(() => {
         dispatch(getAllSpots())
-        dispatch(getAllReviews())
+        // dispatch(getAllReviews())
     }, [dispatch])
 
     // console.log(getAllReviews(), 'this is the getallreviews')
@@ -61,6 +51,12 @@ const SpotDetails = () => {
         const sendThisSpotToOblivion = dispatch(deleteSpot(spotId))
 
     }
+
+    // const history = useHistory()
+    // const dispatch = useDispatch()
+    // const { spotId } = useParams()
+    // const userId = useSelector(state => state.session.user?.id)
+    // const ownerId = useSelector(state => state.spots.)
 
 
 

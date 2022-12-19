@@ -5,7 +5,7 @@ const READ_SPOTS = 'spots/READ'
 const READ_SINGLE_SPOT = 'spots/READ_SINGLE_SPOT'
 const CREATE = 'spots/CREATE'
 const DELETE = 'spots/DELETE'
-const UPDATE = 'spots/UPDATE'
+const UPDATE_SPOT = 'spots/UPDATE'
 
 
 //action creators
@@ -30,7 +30,7 @@ const remove = (spotId) => ({
 })
 
 const edit = (spot) => ({
-    type: UPDATE,
+    type: UPDATE_SPOT,
     spot
 })
 
@@ -81,6 +81,7 @@ export const createSpot = (imagePayload, payload) => async dispatch => {
 
 //update
 export const updateSpot = payload => async dispatch => {
+    console.log(payload.id)
     const response = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         headers: {
@@ -115,9 +116,10 @@ export const deleteSpot = spotId => async dispatch => {
 const initialState = {}
 
 const spotsReducer = (state = initialState, action) => {
+    let allSpots = {}
     switch(action.type){
         case READ_SPOTS:
-            const allSpots = {}
+            // const allSpots = {}
             action.spots.Spots.forEach(spot => {
                 allSpots[spot.id] = spot
             })
@@ -134,6 +136,11 @@ const spotsReducer = (state = initialState, action) => {
             const createState = {...state}
             createState[action.spot.id] = action.spot
             return createState
+
+        case UPDATE_SPOT:
+            let editedSpot = {...state}
+            editedSpot[action.spot.id] = action.spot
+            return editedSpot
 
         case DELETE:
             const deleteState = {...state}
