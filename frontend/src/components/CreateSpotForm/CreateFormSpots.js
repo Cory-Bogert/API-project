@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory} from 'react-router-dom'
-import { createSpot } from "../../store/SpotsReducer";
+import { useHistory, useParams} from 'react-router-dom'
+import { createSpot, getAllSpots } from "../../store/SpotsReducer";
 import './CreateSpotForm.css'
 
 const CreateSpotForm = ({ closeModal }) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
+  let { spotId } = useParams()
+  spotId = parseInt(spotId)
 
   const [validationErrors, setValidationErrors] = useState([])
 
@@ -64,7 +66,9 @@ const CreateSpotForm = ({ closeModal }) => {
     }
 
     const newSpot = await dispatch(createSpot(imagePayload, payload))
+    // console.log(newSpot.id, ' thi si s the new spots id ================')
     history.push(`/spots/${newSpot.id}`)
+    // dispatch(getAllSpots(spotId))
     closeModal()
   }
 

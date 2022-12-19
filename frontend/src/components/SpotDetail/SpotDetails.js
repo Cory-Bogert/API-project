@@ -47,8 +47,12 @@ const SpotDetails = () => {
 
     // console.log(getAllReviews(), 'this is the getallreviews')
 
-    const deleteThisSpot = () => {
-        const sendThisSpotToOblivion = dispatch(deleteSpot(spotId))
+    const deleteThisSpotBtn = (e) => {
+        e.preventDefault()
+        dispatch(deleteSpot(spotId))
+        history.push('/')
+
+        // const sendThisSpotToOblivion = dispatch(deleteSpot(spotId))
 
     }
 
@@ -109,6 +113,10 @@ const SpotDetails = () => {
 
            <div>
             {user && user.id === spot.ownerId ? <EditSpotFormModal /> : null}
+           </div>
+
+           <div>
+            {user && user.id === spot.ownerId ? <button className='delete-btn' onClick={deleteThisSpotBtn}>Delete</button> : null}
            </div>
 
            <footer>

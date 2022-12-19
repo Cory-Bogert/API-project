@@ -17,9 +17,9 @@ const createReview = (review) => ({
     review
 
 });
-const removeReview = (review) => ({
+const removeReview = (id) => ({
     type: DELETE_REVIEW,
-    review
+    id
 })
 
 //thunk
@@ -36,8 +36,8 @@ export const getAllReviews = (spotId) => async dispatch => {
 }
 
 
-export const createReviews = (payload) => async dispatch => {
-    let spotId = payload.spotId
+export const createReviews = (payload, spotId) => async dispatch => {
+    // let spotId = payload.spotId
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
         method: 'POST',
         headers: {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { updateSpot } from '../../store/SpotsReducer';
-import { getOneSpot, getAllSpots } from '../../store/SpotsReducer';
+import { getAllSpots } from '../../store/SpotsReducer';
 // import SpotDetails from '../SpotDetail/SpotDetails';
 
 const EditFormSpot = ({ closeModal }) => {
@@ -15,7 +15,7 @@ const EditFormSpot = ({ closeModal }) => {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getOneSpot(spotId))
+    dispatch(getAllSpots(spotId))
   }, [dispatch, spotId])
 
   // const currentSpot = useSelector(state => state.spot)
@@ -74,8 +74,9 @@ const EditFormSpot = ({ closeModal }) => {
     }
 
     return dispatch(updateSpot(payload)).then(async (response) => {
-      console.log(spotId, 'this is the spotId ================')
-      history.push(`/spots/${spotId}`)
+      // console.log(spotId, 'this is the spotId ================')
+      // history.push(`/spots/${spotId}`)
+      dispatch(getAllSpots(spotId))
       closeModal()
     })
     // dispatch(getOneSpot(spotId))

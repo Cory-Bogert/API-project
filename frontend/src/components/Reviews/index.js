@@ -34,7 +34,8 @@ const AllReviews = () => {
 
     const handleDelete = async (reviewId) => {
         await dispatch(deleteReview(reviewId))
-        dispatch(getOneSpot(spotId))
+        dispatch(getAllReviews(spotId))
+        dispatch(getAllSpots(spotId))
         history.push(`/spots/${spotId}`)
     }
 
