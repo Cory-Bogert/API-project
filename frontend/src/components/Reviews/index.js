@@ -41,11 +41,11 @@ const AllReviews = () => {
 
 
     return (
-        <div className="outter-container-reviews">
+        <div className="outer-container-reviews">
             {reviews.map((review) => {
             // console.log(review.User.firstName, 'asd;lkfja;lsdfja;sdlfja;sdlfjk')
                 return (
-                    <div className="inner-container-reviews">
+                    <div className="outter-container-reviews">
                         <div className="inner-container-reviews">
                             <div className="inner-container-reviews">
                         ★{review.stars}

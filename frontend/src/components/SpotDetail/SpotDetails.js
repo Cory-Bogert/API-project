@@ -1,6 +1,6 @@
 
-import React, {  useEffect, useState } from 'react';
-import { useParams,  NavLink, useHistory } from 'react-router-dom';
+import React, {  useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './SpotDetail.css'
 import { getAllSpots, deleteSpot, getOneSpot } from "../../store/SpotsReducer";
@@ -31,7 +31,7 @@ const SpotDetails = () => {
     const spot = allSpots.find(spot => spot.id === spotId)
     // console.log(spot, 'adsl;kfjasd;lfk')
 
-    const allReviews = useSelector(state=> Object.values(state.reviews))
+    // const allReviews = useSelector(state=> Object.values(state.reviews))
     // console.log(allReviews, allReviews.length, 'this is all the reviews')
 
 
@@ -41,7 +41,7 @@ const SpotDetails = () => {
 
 
     useEffect(() => {
-        dispatch(getAllSpots())
+        dispatch(getAllSpots(spotId))
         // dispatch(getAllReviews())
     }, [dispatch])
 
@@ -76,25 +76,20 @@ const SpotDetails = () => {
              {spot.address} {spot.city} {spot.state}
            </div>
 
-           <div>
+           <div className='image-container'>
             <img className='spot-image' src={spot.previewImage} alt='spot'/>
-           </div>
            <div className='small-img-container'>
 
-           {/* <div className="stock-images">
+           <div className="stock-images">
                         <div>
                             <img className='thumbnail' src={'https://a0.muscache.com/im/pictures/prohost-api/Hosting-20959187/original/008c0a3a-04b7-4e29-912f-615d00de8f7b.jpeg?im_w=720'} alt='interior image' />
                         </div>
                         <div>
                             <img className='thumbnail' src={'https://a0.muscache.com/im/pictures/prohost-api/Hosting-20959187/original/3da605b6-fe1d-4efa-ac5b-27e858873ed8.jpeg?im_w=720'} alt='interior image' />
                         </div>
-                        <div className='stock-images'>
-                            <img className='thumbnail' src={'https://a0.muscache.com/im/pictures/prohost-api/Hosting-20959187/original/726e44c6-0498-4e6e-96be-b4ac6791d6d6.jpeg?im_w=720'} alt='interior image' />
-                        <div >
-                            <img className='thumbnail' src={'https://a0.muscache.com/im/pictures/prohost-api/Hosting-20959187/original/b8f79fb6-f16b-43bc-8108-1671bc2bef97.jpeg?im_w=720'} alt='interior image' />
-                        </div>
                     </div>
-                    </div> */}
+           </div>
+           </div>
 
            <div className='host-container'>
            {`${spot.name} hosted by Cory`}
@@ -117,7 +112,7 @@ const SpotDetails = () => {
            </div>
 
            {/* <ReviewsBrowser /> */}
-           </div>
+
 
 
 

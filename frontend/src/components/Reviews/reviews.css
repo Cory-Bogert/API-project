@@ -1,17 +1,18 @@
 .inner-container-reviews{
-    /* width: 810px;
-    color: #ff383c;
-    padding-bottom: 21px;
-    padding-top: 16px;
-    font-size: 16px;
-    display: grid;
-    grid-template-rows: 50% 50%;
-    grid-template-columns: 50% 50%; */
+
     margin-top: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
+.outter-container-reviews {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 2px;
+    /* width: 25%; */
+    overflow-wrap: break-word;
+    inline-size: 28%;
+}
 
 
 .h5 {
