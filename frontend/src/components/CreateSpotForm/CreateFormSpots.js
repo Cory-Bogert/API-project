@@ -43,9 +43,15 @@ const CreateSpotForm = ({ closeModal }) => {
     if(price < 0) {errors.push('Minimum price must be at least $0')}
     if(!sessionUser) {errors.push('Must be logged in to create a spot')}
     if(description.length > 254){errors.push("Description can't exceed 255 characters")}
+    if(!address.length) {errors.push('Address is required')}
+    if(!city.length){errors.push('City is required')}
+    if(!state.length){errors.push('State is required')}
+    if(!country.length){errors.push('Country is required')}
+    if(!description.length){errors.push('Description is required')}
+    if(name.length < 3){errors.push('Name must be 3 or more characters')}
 
     setValidationErrors(errors)
-  }, [url, price, description])
+  }, [url, price, description, address, city, state, country, name])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

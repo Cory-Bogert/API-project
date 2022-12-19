@@ -56,7 +56,7 @@ const EditFormSpot = ({ closeModal }) => {
 
 
     setValidationErrors(errors)
-  }, [price, description, address, city, state, country, description, name])
+  }, [price, description, address, city, state, country, name])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
