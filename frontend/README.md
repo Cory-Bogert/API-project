@@ -1,5 +1,58 @@
+# ErrorBnb
 
-# Create React App Template
+ErrorBnb is a website inspired by [AirBnb](https://www.airbnb.com/)
+
+
+# TechStack used
+Javascript
+React
+Express
+Redux
+CSS
+HTML
+
+# Link
+[ErrorBnb](https://errorbnb.onrender.com)
+
+# Features
+Landing Page
+Login/Signup
+Full CRUD with spots
+Create Read, and Delete reviews for a spot
+
+# Getting Started
+* Clone Repo
+* npm install
+* npm start in both frontend/backend folders
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- # Create React App Template
 
 A no-frills template from which to create React + Redux applications with
 [Create React App](https://github.com/facebook/create-react-app).
@@ -73,4 +126,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
