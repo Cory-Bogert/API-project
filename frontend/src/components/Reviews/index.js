@@ -47,7 +47,6 @@ const AllReviews = () => {
                 return (
                     <div className="inner-container-reviews">
                         <div className="">
-                            {review.User}
                         ★{review.stars}
                         {review.review}
                         {sessionUserId === review.userId ?
