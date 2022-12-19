@@ -68,7 +68,7 @@ const CreateSpotForm = ({ closeModal }) => {
     const newSpot = await dispatch(createSpot(imagePayload, payload))
     // console.log(newSpot.id, ' thi si s the new spots id ================')
     history.push(`/spots/${newSpot.id}`)
-    // dispatch(getAllSpots(spotId))
+    dispatch(getAllSpots(newSpot.id))
     closeModal()
   }
 
