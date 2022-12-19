@@ -52,7 +52,7 @@ Create Read, and Delete reviews for a spot
 
 
 
-# Create React App Template
+<!-- # Create React App Template
 
 A no-frills template from which to create React + Redux applications with
 [Create React App](https://github.com/facebook/create-react-app).
@@ -126,4 +126,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
