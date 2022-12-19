@@ -1,11 +1,11 @@
 .spot-image {
     height: 250px;
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
-    align-content: flex-start; */
-    width: 250px;
+    align-content: flex-start;
+    width: 230px;
     border-radius: 5%;
-    /* flex-direction: row; */
+    flex-direction: row;
 
 }
 
@@ -31,7 +31,7 @@
 
 .cardOuterContainer {
     margin-top: 12px;
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
@@ -46,6 +46,7 @@
     margin-right: 5%;
     padding-bottom: 30px;
     justify-content: space-between;
+    width: auto;
 
 }
 
@@ -70,6 +71,7 @@
     margin: 2px;
     color:darkgrey;
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .spot-price {
@@ -78,6 +80,7 @@
     font-size: 15px;
     margin: 2px;
     color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .avg-rating {

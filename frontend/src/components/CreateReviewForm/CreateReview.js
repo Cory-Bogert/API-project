@@ -99,6 +99,7 @@ const CreateReview = ({closeModal}) => {
 
         <input
           placeholder='Leave Review Here'
+          className="input"
           required
           id='review'
           type='text'
@@ -108,6 +109,7 @@ const CreateReview = ({closeModal}) => {
 
         <input
           placeholder='Leave a Rating between 1-5'
+          className="input"
           required
           id='stars'
           type='number'

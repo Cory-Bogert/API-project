@@ -46,9 +46,13 @@ const AllReviews = () => {
             // console.log(review.User.firstName, 'asd;lkfja;lsdfja;sdlfja;sdlfjk')
                 return (
                     <div className="inner-container-reviews">
-                        <div className="">
+                        <div className="inner-container-reviews">
+                            <div className="inner-container-reviews">
                         ★{review.stars}
+                            </div>
+                            <div className="inner-container-reviews">
                         {review.review}
+                        </div>
                         {sessionUserId === review.userId ?
                         <button className = 'deleteReviewButton' onClick = {() => handleDelete(review.id)}>Delete Review</button> : null}
                         </div>

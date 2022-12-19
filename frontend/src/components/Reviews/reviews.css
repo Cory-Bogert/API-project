@@ -1,14 +1,22 @@
-.inner-container.reviews{
-    width: 810px;
-    color: pink;
+.inner-container-reviews{
+    /* width: 810px;
+    color: #ff383c;
     padding-bottom: 21px;
     padding-top: 16px;
     font-size: 16px;
     display: grid;
     grid-template-rows: 50% 50%;
-    grid-template-columns: 50% 50%;
-    margin: 3px;
+    grid-template-columns: 50% 50%; */
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+
+
+
+.h5 {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .deleteReviewButton{

@@ -1,11 +1,15 @@
 .spot-card {
     text-align: left;
     width: 800px;
+
 }
 
 .spot-container {
     margin-left: 80px;
     margin-top: 30px;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column; */
 }
 
 h1 {
@@ -27,13 +31,42 @@ h1 {
 }
 
 .spot-details {
-    font-size: 15px;
+    font-size: 18px;
     display: flex;
     font-style: underline;
     padding: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
+
+/* .stock-images {
+
+    display: flex;
+    width: 100%;
+    margin-right: 2%;
+
+}
+
+.small-img-container {
+
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.thumbnail {
+    height: 380px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px;
+    width: 100%;
+} */
+
+/* .thumbnail2 {
+    width: 250px;
+    height: 240px;
+    object-fit: cover;
+    border-top-right-radius: 20px;
+} */
 
 
 .stars-rating {

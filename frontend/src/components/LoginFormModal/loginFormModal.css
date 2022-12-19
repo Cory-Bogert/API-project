@@ -1,16 +1,19 @@
 .form-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white;
     display: flex;
     justify-content: center;
+    width: fit-content;
     align-items: center;
+    flex-direction: column;
     margin: 3px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
 }
 
 .input {
     border: 2px solid #ff383c;
     border-radius: 2px;
-    align-self: center;
+    display: flex;
 }
 
 .login-btn {
@@ -18,7 +21,18 @@
     color: white;
     border: none;
     border-radius: 8px;
-    margin: 5px
+    margin: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+form {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
 
+}

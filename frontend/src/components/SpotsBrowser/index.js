@@ -42,7 +42,7 @@ const AllSpots = () => {
 
 <footer>
 <div className='footer'>
-    <p>© 2022 Airbnb, Inc.</p>
+    <p>© 2022 ErrorBnb, Inc.</p>
 </div>
 </footer>
                 </>

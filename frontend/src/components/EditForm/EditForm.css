@@ -16,7 +16,8 @@ form {
 }
 
 .input {
-    border: 2px solid #ff383c;
+    /* border: 2px solid #ff383c; */
+    margin: .5%;
     border-radius: 2px;
     align-self: center;
 }
