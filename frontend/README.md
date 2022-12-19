@@ -14,6 +14,13 @@ HTML
 # Link
 [ErrorBnb](https://errorbnb.onrender.com)
 
+# Features
+Landing Page
+Login/Signup
+Full CRUD with spots
+Create Read, and Delete reviews for a spot
+
+
 
 
 
