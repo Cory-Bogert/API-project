@@ -20,6 +20,11 @@ Login/Signup
 Full CRUD with spots
 Create Read, and Delete reviews for a spot
 
+# Getting Started
+* Clone Repo
+* npm install
+* npm start in both frontend/backend folders
+
 
 
 
